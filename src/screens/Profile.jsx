@@ -1,6 +1,14 @@
-import {Image, SafeAreaView, StyleSheet, Text, View} from "react-native";
+import {Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useContext} from "react";
+import {AuthContext} from "../components/AuthProvider";
 
 const Profile = () => {
+    const {user, setUser} = useContext(AuthContext);
+
+    const handleLogout = () => {
+        setUser(null)
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={{
@@ -11,14 +19,18 @@ const Profile = () => {
                     <Image
                         style={styles.avatar}
                         source={{
-                            uri: 'https://i.pinimg.com/736x/fa/68/26/fa68266e4bcac979a85327dfe621938c.jpg',
+                            uri: user.photo,
                         }}
                     />
                     <View style={styles.textContainer}>
-                       <Text style={styles.text}>Имя: Павел</Text>
-                       <Text style={styles.text}>Фамилия: Кондратьев</Text>
+                       <Text style={styles.text}>Имя: {user.firstName}</Text>
+                       <Text style={styles.text}>Фамилия: {user.lastName}</Text>
                     </View>
                 </View>
+                <TouchableOpacity onPress={handleLogout}
+                                  style={styles.button}>
+                    <Text style={styles.button_text}>Выйти</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     );
@@ -58,6 +70,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#c5eff6',
         borderRadius: 10,
         overflow: 'hidden'
+    },
+    button: {
+        backgroundColor: 'red',
+        width: 150,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 10
+    },
+    button_text: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 18
     }
 });
 

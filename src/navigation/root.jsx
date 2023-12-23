@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {FontAwesome, Entypo} from '@expo/vector-icons';
 import Profile from "../screens/Profile";
-import Home from "../screens/Home";
+import AdvertsStackScreen from "./adverts";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +16,7 @@ const TabBar = () => {
                     tabBarIcon: ({focused}) => (<Entypo name="home" size={24} color={focused ? '#04764E' : 'black'}/>)
                 }}
                 name="Home"
-                component={Home} />
+                component={AdvertsStackScreen} />
             <Tab.Screen
                 options={{
                     headerShown: false,

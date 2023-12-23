@@ -5,7 +5,6 @@ import {marketItemsMock} from "../mocks/marketItems.mock";
 import {sortChipsLabels, sortItemsVariants} from "../utils/constants";
 import SearchInput from "../components/SearchInput";
 
-
 const initialMarketItemsState = {
     marketItems: []
 }
@@ -30,7 +29,7 @@ const reducer = (state, action) => {
     }
 }
 
-const Home = () => {
+const Home = ({ navigation }) => {
     const [state, dispatch] = useReducer(reducer, initialMarketItemsState)
     const [sort, setSort] = useState(sortItemsVariants.NONE);
     const [searchValue, setSearchValue] = useState('');
@@ -38,8 +37,9 @@ const Home = () => {
     const searchInputRef = useRef(null);
     const itemsClickCount = useRef(0);
 
-    const handleItemClick = useCallback(() => {
+    const handleItemClick = useCallback((id) => {
         itemsClickCount.current += 1;
+        navigation.push("SingleAdvert", {id})
     }, [])
 
     useEffect(() => {
@@ -118,7 +118,7 @@ const Home = () => {
                                 title={el.title}
                                 imageLocalPath={el.imagePath}
                                 price={el.price}
-                                onClick={handleItemClick}
+                                onClick={() => handleItemClick(el.id)}
                             />))
                     }
                 </ScrollView>
