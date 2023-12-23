@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {FontAwesome, Entypo} from '@expo/vector-icons';
-import Profile from "../screens/Profile";
 import AdvertsStackScreen from "./adverts";
+import ProfileDrawerScreen from "./profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +25,7 @@ const TabBar = () => {
                     tabBarIcon: ({focused}) => (<FontAwesome name="user-circle-o" size={24} color={focused ? '#123094' : 'black'}/>),
                 }}
                 name="Profile"
-                component={Profile} />
+                component={ProfileDrawerScreen} />
         </Tab.Navigator>
     );
 }
