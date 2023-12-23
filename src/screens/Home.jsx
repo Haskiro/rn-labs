@@ -129,13 +129,19 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     title: {
+        // размер шрифта
         fontSize: 24,
+        // жирность шрифта
         fontWeight: 'bold',
+        // отступ снизу
         marginBottom: 20,
+        // подчеркивание текста
         textDecorationLine: 'underline'
     },
     container: {
+        // просто flex, что тут еще добавить)
         flex: 1,
+        // цвет фона
         backgroundColor: '#fff',
     },
     sortTitle: {
@@ -143,11 +149,17 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     sortChip: {
+        // цвет границы
         borderColor: 'black',
+        // ширина
         borderWidth: 1,
+        // скругление углов
         borderRadius: 16,
+        // внутренние отступы по горизонтали
         paddingHorizontal: 10,
+        // внутренние отступы по вертикали
         paddingVertical: 8,
+        // минимальная высота
         minHeight: 35,
         marginBottom: 20
     },
