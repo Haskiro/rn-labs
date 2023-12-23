@@ -102,6 +102,6 @@ const styles = StyleSheet.create({
     button_text: {
         color: 'white',
         textAlign: 'center',
-    }
+    },
 });
 export default Auth;
